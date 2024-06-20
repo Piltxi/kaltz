@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Inizializzazione delle variabili
+output_option=""
+files=()
+
+finish() {
+    local fn=${1%.*}
+    llvm-as $1
+    llc ${fn}.bc
+    as -o ${fn}.o ${fn}.s
+}
+
+# Analizza gli argomenti passati allo script
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -o)
+            shift
+            output_option="$1"
+            shift
+            ;;
+        *)
+            if [ ! -e "$1" ]; then
+                echo "Il file $1 non esiste o non è valido."
+                exit 1
+            fi
+
+            files+=("$1")
+            shift
+            ;;
+    esac
+done
+filename="${files[0]%%.*}"
+if [ ${#files[@]} -gt 0 ]; then
+        ./kcomp ${files[0]} 2> ${filename}.ll
+        finish ${filename}.ll
+        if [ ${#files[@]} -gt 1 ]; then
+            for ((i = 1; i < ${#files[@]}; i++)); do
+                if [[ "${files[i]}" == *.cpp ]]; then
+                    clang++ -c ${files[i]}
+                    files[i]=${files[i]%%.*}.o
+                fi
+            done
+        fi
+        if [ -n "$output_option" ]; then
+            clang++ -o $output_option ${filename}.o ${files[@]:1}
+        else
+            clang++ ${filename}.o ${files[@]:1}
+        fi        
+else
+        echo "inserire almeno un file"
+fi
+
+
+
