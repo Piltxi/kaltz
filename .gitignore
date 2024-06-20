@@ -1,2 +1,4 @@
 .DS_Store
 /test_progetto/.DS_Store
+/test_progetto/*.ll 
+/test_progetto/*.o
