@@ -40,7 +40,7 @@ inside <a href="test_progetto">test_progetto</a> you will then find some test fi
 Inside the repo, in the main directory, you will not find many files: 
 - <a href="scanner.ll"> scanner.ll</a>: flex file for defining regular expressions that match keywords, identifiers, numbers, operators and some
 - <a href="parser.yy"> parser.yy</a>:  bison file to define the grammar rules of the language and how they combine to form valid expressions, statements, and program structures
-- <a href="driver.cpp"> driver.cpp </a> [and <a href="driver.hpp"> driver.hpp </a>]: central part of the compiler that orchestrates the overall compilation process; it includes the necessary LLVM headers and defines several key components and functions essential for generating LLVM IR code from the AST
+- <a href="driver.cpp"> driver.cpp </a> [and <a href="driver.hpp"> driver.hpp</a>]: central part of the compiler that orchestrates the overall compilation process; it includes the necessary LLVM headers and defines several key components and functions essential for generating LLVM IR code from the AST
 - <a href="kcomp.cpp"> kcomp.cpp</a>: entry point for the compiler; it handles command-line arguments, initiates the parsing process. It's the main client in the project: **story begins here**.
 
 of course, once you run `make`, if everything went well, you will find a few more files. 
