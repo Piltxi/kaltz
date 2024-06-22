@@ -33,7 +33,9 @@ inside <a href="test_progetto">test_progetto</a> you will then find some test fi
 
 ## 📡 Overview
 
-![Repo Diagram](diagram.svg)
+<p align="center">
+  <img src="diagram.svg" />
+</p>
 
 Inside the repo, in the main directory, you will not find many files: 
 - <a href="scanner.ll"> scanner.ll</a>: flex file for defining regular expressions that match keywords, identifiers, numbers, operators and some
