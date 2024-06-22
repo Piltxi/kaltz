@@ -1,4 +1,10 @@
 .DS_Store
 /test_progetto/.DS_Store
 /test_progetto/*.ll 
+/test_progetto/*.bc
+/test_progetto/*.s
 /test_progetto/*.o
+scanner.cpp
+parser.cpp
+parser.hpp
+/*.o
