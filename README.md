@@ -2,6 +2,8 @@
 
 *kaltz* implements a compiler for a simple programming language, compiling the source code into LLVM intermediate code. The compiler consists of a lexer, a parser, a code generator, and various classes representing the abstract syntax tree (AST).
 
+<a href="grammars.md">here for the list of implemented grammars</a>
+
 ## ⛺ Prerequisites and setup
 - LLVM 16.06
 - flex 2.6.4
